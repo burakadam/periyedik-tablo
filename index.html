@@ -1,0 +1,2996 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" class="loading">
+<head>
+    <meta charset="utf-8" />
+    <title>Periyedik Tablo</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="assets/inc/simple-scrollbar.css" rel="stylesheet">
+    <link href="assets/inc/jquery-ui.min.css" rel="stylesheet" />
+    <link href="assets/inc/styles.css?05072019.07" rel="stylesheet">
+    <script>
+        //sayfaya basılacak elementler
+        var elements = {
+            "DB": [{
+                atomNo: "1",
+                shortName: "Su",
+                name: "Su",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "1",
+                periodicNo: "1",
+                group: "ametal",
+                tableNo: 1,
+                minPrice: 1
+            },
+            {
+                atomNo: "2",
+                shortName: "St",
+                name: "Simit",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "1",
+                group: "soygaz",
+                tableNo: 3,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "3",
+                shortName: "Pt",
+                name: "Patates Kızartması",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "2",
+                group: "alkali metal",
+                tableNo: 4,
+                minPrice: 1
+            },
+            {
+                atomNo: "4",
+                shortName: "Kp",
+                name: "Krep",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "2",
+                group: "toprak alkali metal",
+                tableNo: 5,
+                minPrice: 1
+            },
+            {
+                atomNo: "5",
+                shortName: "Mr",
+                name: "Mercimek",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "13",
+                periodicNo: "2",
+                group: "yarı metal",
+                tableNo: 7,
+                minPrice: 1
+            },
+            {
+                atomNo: "6",
+                shortName: "Ko",
+                name: "Kola",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "14",
+                periodicNo: "2",
+                group: "ametal",
+                tableNo: 8,
+                minPrice: 1
+            },
+            {
+                atomNo: "7",
+                shortName: "Bz",
+                name: "Buzlu Çay",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "15",
+                periodicNo: "2",
+                group: "ametal",
+                tableNo: 9,
+                minPrice: 1
+            },
+            {
+                atomNo: "8",
+                shortName: "Ga",
+                name: "Gazoz",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "16",
+                periodicNo: "2",
+                group: "ametal",
+                tableNo: 10,
+                minPrice: 1
+            },
+            {
+                atomNo: "9",
+                shortName: "Sü",
+                name: "Sütlaç",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "2",
+                group: "halojen",
+                tableNo: 11,
+                minPrice: 1
+            },
+            {
+                atomNo: "10",
+                shortName: "To",
+                name: "Tost",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "2",
+                group: "soygaz",
+                tableNo: 12,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "11",
+                shortName: "Sh",
+                name: "Soğan Halkası",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "3",
+                group: "alkali metal",
+                tableNo: 13,
+                minPrice: 1
+            },
+            {
+                atomNo: "12",
+                shortName: "Br",
+                name: "Börek",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "3",
+                group: "toprak alkali metal",
+                tableNo: 14,
+                minPrice: 1
+            },
+            {
+                atomNo: "13",
+                shortName: "Ps",
+                name: "Peynirli Salata",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "13",
+                periodicNo: "3",
+                group: "metal",
+                tableNo: 16,
+                minPrice: 1
+            },
+            {
+                atomNo: "14",
+                shortName: "Dm",
+                name: "Domates Çorbası",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "14",
+                periodicNo: "3",
+                group: "yarı metal",
+                tableNo: 17,
+                minPrice: 15
+            },
+            {
+                atomNo: "15",
+                shortName: "Ay",
+                name: "Ayran",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "15",
+                periodicNo: "3",
+                group: "ametal",
+                tableNo: 18,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "16",
+                shortName: "Ms",
+                name: "Meyve Suyu",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "16",
+                periodicNo: "3",
+                group: "ametal",
+                tableNo: 19,
+                minPrice: 1
+            },
+            {
+                atomNo: "17",
+                shortName: "Kd",
+                name: "Kazandibi",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "3",
+                group: "halojen",
+                tableNo: 20,
+                minPrice: 1
+            },
+            {
+                atomNo: "18",
+                shortName: "Po",
+                name: "Poğaça",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "3",
+                group: "soygaz",
+                tableNo: 21,
+                minPrice: 1
+            },
+            {
+                atomNo: "19",
+                shortName: "Se",
+                name: "Sarımsaklı Ekmek",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "4",
+                group: "alkali metal",
+                tableNo: 22,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "20",
+                shortName: "La",
+                name: "Lahmacun",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "4",
+                group: "toprak alkali metal",
+                tableNo: 23,
+                minPrice: 1
+            },
+            {
+                atomNo: "21",
+                shortName: "So",
+                name: "Sosisli",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "3",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 24,
+                minPrice: 1
+            },
+            {
+                atomNo: "22",
+                shortName: "Ih",
+                name: "Islak Hamburger",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "4",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 25,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "23",
+                shortName: "Sn",
+                name: "Sandviç",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "5",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 26,
+                minPrice: 1
+            },
+            {
+                atomNo: "24",
+                shortName: "Çi",
+                name: "Çiğ Köfte",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "6",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 27,
+                minPrice: 1
+            },
+            {
+                atomNo: "25",
+                shortName: "Pa",
+                name: "Patso",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "7",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 28,
+                minPrice: 1
+            },
+            {
+                atomNo: "26",
+                shortName: "Bg",
+                name: "Burger",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "8",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 29,
+                minPrice: 1
+            },
+            {
+                atomNo: "27",
+                shortName: "Ku",
+                name: "Kumru",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "9",
+                periodicNo: "4",
+                group: "30 metali",
+                tableNo: 30,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "28",
+                shortName: "Dö",
+                name: "Döner",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "10",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 31,
+                minPrice: 1
+            },
+            {
+                atomNo: "29",
+                shortName: "Tn",
+                name: "Tantuni",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "11",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 32,
+                minPrice: 1
+            },
+            {
+                atomNo: "30",
+                shortName: "Kr",
+                name: "Kumpir",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "12",
+                periodicNo: "4",
+                group: "geçiş metali",
+                tableNo: 33,
+                minPrice: 1
+            },
+            {
+                atomNo: "31",
+                shortName: "Gv",
+                name: "Gavurdağı",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "13",
+                periodicNo: "4",
+                group: "metal",
+                tableNo: 34,
+                minPrice: 1
+            },
+            {
+                atomNo: "32",
+                shortName: "Tu",
+                name: "Tavuk Suyu",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "14",
+                periodicNo: "4",
+                group: "yarı metal",
+                tableNo: 35,
+                minPrice: 1
+            },
+            {
+                atomNo: "33",
+                shortName: "Ez",
+                name: "Ezogelin",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "15",
+                periodicNo: "4",
+                group: "yarı metal",
+                tableNo: 36,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "34",
+                shortName: "Şl",
+                name: "Şalgam",
+                parent: "drinks", groupName: "İçecek",
+                groupNo: "16",
+                periodicNo: "4",
+                group: "ametal",
+                tableNo: 37,
+                minPrice: 1
+            },
+            {
+                atomNo: "35",
+                shortName: "Pf",
+                name: "Profiterol",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "4",
+                group: "halojen",
+                tableNo: 38,
+                minPrice: 1
+            },
+            {
+                atomNo: "36",
+                shortName: "Mn",
+                name: "Menemen",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "4",
+                group: "soygaz",
+                tableNo: 39,
+                minPrice: 1
+            },
+            {
+                atomNo: "37",
+                shortName: "Sa",
+                name: "Yaprak Sarma",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "5",
+                group: "alkali metal",
+                tableNo: 40,
+                minPrice: 1
+            },
+            {
+                atomNo: "38",
+                shortName: "Ma",
+                name: "Makarna",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "5",
+                group: "toprak alkali metal",
+                tableNo: 41,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "39",
+                shortName: "Mi",
+                name: "Midye",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "3",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 42,
+                minPrice: 1
+            },
+            {
+                atomNo: "40",
+                shortName: "Ha",
+                name: "Hamsi",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "4",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 43,
+                minPrice: 1
+            },
+            {
+                atomNo: "41",
+                shortName: "Km",
+                name: "Kalamar",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "5",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 44,
+                eaten: true,
+                minPrice: 40
+            },
+            {
+                atomNo: "42",
+                shortName: "Sm",
+                name: "Somon",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "6",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 45,
+                minPrice: 1
+            },
+            {
+                atomNo: "43",
+                shortName: "Le",
+                name: "Levrek",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "7",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 46,
+                minPrice: 1
+            },
+            {
+                atomNo: "44",
+                shortName: "Tp",
+                name: "Tavuk Pilav",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "8",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 47,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "45",
+                shortName: "Tş",
+                name: "Tavuk Şiş",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "9",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 48,
+                minPrice: 1
+            },
+            {
+                atomNo: "46",
+                shortName: "Tz",
+                name: "Tavuk Izgara",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "10",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 49,
+                minPrice: 1
+            },
+            {
+                atomNo: "47",
+                shortName: "Kn",
+                name: "Kanat",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "11",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 50,
+                minPrice: 1
+            },
+            {
+                atomNo: "48",
+                shortName: "Kt",
+                name: "Kızarmış Tavuk",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "12",
+                periodicNo: "5",
+                group: "geçiş metali",
+                tableNo: 51,
+                minPrice: 1
+            },
+            {
+                atomNo: "49",
+                shortName: "Py",
+                name: "Piyaz",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "13",
+                periodicNo: "5",
+                group: "metal",
+                tableNo: 52,
+                minPrice: 15
+            },
+            {
+                atomNo: "50",
+                shortName: "As",
+                name: "Akdeniz Salatası",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "14",
+                periodicNo: "5",
+                group: "metal",
+                tableNo: 53,
+                minPrice: 1
+            },
+            {
+                atomNo: "51",
+                shortName: "Yy",
+                name: "Yayla Çorbası",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "15",
+                periodicNo: "5",
+                group: "yarı metal",
+                tableNo: 54,
+                minPrice: 1
+            },
+            {
+                atomNo: "52",
+                shortName: "Kl",
+                name: "Kelle&nbspPaça Çorba",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "16",
+                periodicNo: "5",
+                group: "yarı metal",
+                tableNo: 55,
+                minPrice: 1
+            },
+            {
+                atomNo: "53",
+                shortName: "Sf",
+                name: "Sufle",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "5",
+                group: "halojen",
+                tableNo: 56,
+                minPrice: 1
+            },
+            {
+                atomNo: "54",
+                shortName: "Om",
+                name: "Omlet",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "5",
+                group: "soygaz",
+                tableNo: 57,
+                minPrice: 1
+            },
+            {
+                atomNo: "55",
+                shortName: "Mü",
+                name: "Mücver",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "6",
+                group: "alkali metal",
+                tableNo: 58,
+                minPrice: 1
+            },
+            {
+                atomNo: "56",
+                shortName: "Pz",
+                name: "Pizza",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "6",
+                group: "toprak alkali metal",
+                tableNo: 59,
+                minPrice: 30
+            },
+            {
+                atomNo: "57",
+                shortName: "Gz",
+                name: "Gözleme",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "4",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 92,
+                minPrice: 1
+            },
+            {
+                atomNo: "58",
+                shortName: "Kf",
+                name: "Kuru Fasulye",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "5",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 93,
+                minPrice: 1
+            },
+            {
+                atomNo: "59",
+                shortName: "Hu",
+                name: "Humus",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "6",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 94,
+                eaten: true,
+                minPrice: 35
+            },
+            {
+                atomNo: "60",
+                shortName: "Mt",
+                name: "Mantı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "7",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 95,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "61",
+                shortName: "Ek",
+                name: "Etli Ekmek",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "8",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 96,
+                minPrice: 1
+            },
+            {
+                atomNo: "62",
+                shortName: "Mh",
+                name: "Mıhlama",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "9",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 97,
+                minPrice: 1
+            },
+            {
+                atomNo: "63",
+                shortName: "Ca",
+                name: "Cağ Kebabı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "10",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 98,
+                minPrice: 1
+            },
+            {
+                atomNo: "64",
+                shortName: "Kş",
+                name: "Keşkek",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "11",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 99,
+                minPrice: 30
+            },
+            {
+                atomNo: "65",
+                shortName: "Çk",
+                name: "Çökertme Kebabı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "12",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 100,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "66",
+                shortName: "Be",
+                name: "Beyran",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "13",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 101,
+                minPrice: 1
+            },
+            {
+                atomNo: "67",
+                shortName: "Tk",
+                name: "Tas Kebabı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "14",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 102,
+                minPrice: 1
+            },
+            {
+                atomNo: "68",
+                shortName: "Az",
+                name: "Ali Nazik",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "15",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 103,
+                minPrice: 1
+            },
+            {
+                atomNo: "69",
+                shortName: "Te",
+                name: "Tepsi Kebabı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "16",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 104,
+                minPrice: 1
+            },
+            {
+                atomNo: "70",
+                shortName: "Kg",
+                name: "Kaburga",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "17",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 105,
+                minPrice: 1
+            },
+            {
+                atomNo: "71",
+                shortName: "Bü",
+                name: "Büryan Kebabı",
+                parent: "local", groupName: "Yöresel Tatlar",
+                groupNo: "18",
+                periodicNo: "8",
+                group: "lantanit",
+                tableNo: 106,
+                minPrice: 1
+            },
+            {
+                atomNo: "72",
+                shortName: "Pç",
+                name: "Piliç Çevirme",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "4",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 61,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "73",
+                shortName: "Çö",
+                name: "Çöp Şiş",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "5",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 62,
+                minPrice: 1
+            },
+            {
+                atomNo: "74",
+                shortName: "Ur",
+                name: "Urfa",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "6",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 63,
+                minPrice: 1
+            },
+            {
+                atomNo: "75",
+                shortName: "Aa",
+                name: "Adana",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "7",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 64,
+                minPrice: 1
+            },
+            {
+                atomNo: "76",
+                shortName: "Kö",
+                name: "Köfte",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "8",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 65,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "77",
+                shortName: "Kz",
+                name: "Kuzu Şiş",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "9",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 66,
+                minPrice: 1
+            },
+            {
+                atomNo: "78",
+                shortName: "Pr",
+                name: "Pirzola",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "10",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 67,
+                minPrice: 35
+            },
+            {
+                atomNo: "79",
+                shortName: "Şa",
+                name: "Şaşlık",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "11",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 68,
+                minPrice: 1
+            },
+            {
+                atomNo: "80",
+                shortName: "Kç",
+                name: "Kokoreç",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "12",
+                periodicNo: "6",
+                group: "geçiş metali",
+                tableNo: 69,
+                minPrice: 1
+            },
+            {
+                atomNo: "113",
+                shortName: "Ie",
+                name: "Izgara&nbspEtli Salata",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "13",
+                periodicNo: "6",
+                group: "metal",
+                tableNo: 86,
+                minPrice: 1
+            },
+            {
+                atomNo: "81",
+                shortName: "Tb",
+                name: "Ton&nbspbalıklı Salata",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "13",
+                periodicNo: "6",
+                group: "metal",
+                tableNo: 70,
+                minPrice: 1
+            },
+            {
+                atomNo: "82",
+                shortName: "Sz",
+                name: "Sezar",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "14",
+                periodicNo: "6",
+                group: "metal",
+                tableNo: 71,
+                minPrice: 1
+            },
+            {
+                atomNo: "83",
+                shortName: "Ts",
+                name: "Tavuklu Salata",
+                parent: "salatalar", groupName: "Salata",
+                groupNo: "15",
+                periodicNo: "6",
+                group: "metal",
+                tableNo: 72,
+                minPrice: 1
+
+            },
+            {
+                atomNo: "84",
+                shortName: "İç",
+                name: "İşkembe",
+                parent: "soup", groupName: "Çorba",
+                groupNo: "16",
+                periodicNo: "6",
+                group: "metal",
+                tableNo: 73,
+                minPrice: 1
+            },
+            {
+                atomNo: "85",
+                shortName: "Wf",
+                name: "Waffle",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "6",
+                group: "halojen",
+                tableNo: 74,
+                minPrice: 1
+            },
+            {
+                atomNo: "86",
+                shortName: "Kh",
+                name: "Kahvaltı Tabağı",
+                parent: "breakfast", groupName: "Kahvaltı",
+                groupNo: "18",
+                periodicNo: "6",
+                group: "soygaz",
+                tableNo: 75,
+                minPrice: 1
+            },
+            {
+                atomNo: "87",
+                shortName: "İk",
+                name: "İçli Köfte",
+                parent: "startUp", groupName: "Başlangıç",
+                groupNo: "1",
+                periodicNo: "7",
+                group: "alkali metal",
+                tableNo: 76,
+                minPrice: 1
+            },
+            {
+                atomNo: "88",
+                shortName: "Pi",
+                name: "Pide",
+                parent: "hamur", groupName: "Hamur İşi",
+                groupNo: "2",
+                periodicNo: "7",
+                group: "toprak alkali metal",
+                tableNo: 77,
+                minPrice: 1
+            },
+            {
+                atomNo: "89",
+                shortName: "Ki",
+                name: "Kinoa Salatası",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "4",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 110,
+                minPrice: 1
+            },
+            {
+                atomNo: "90",
+                shortName: "Fl",
+                name: "Falafel",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "5",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 111,
+                minPrice: 1
+            },
+            {
+                atomNo: "91",
+                shortName: "Ss",
+                name: "Sushi",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "6",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 112,
+                minPrice: 1
+            },
+            {
+                atomNo: "92",
+                shortName: "No",
+                name: "Noodle",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "7",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 113,
+                minPrice: 1
+            },
+            {
+                atomNo: "93",
+                shortName: "Çy",
+                name: "Çin Yemeği",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "8",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 114,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "94",
+                shortName: "Wr",
+                name: "Wrap",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "9",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 115,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "95",
+                shortName: "Sy",
+                name: "Soya&nbspSoslu Tavuk",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "10",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 116,
+                minPrice: 1
+            },
+            {
+                atomNo: "96",
+                shortName: "Fj",
+                name: "Fajita",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "11",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 117,
+                minPrice: 1
+            },
+            {
+                atomNo: "97",
+                shortName: "Qu",
+                name: "Quesadilla",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "12",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 118,
+                minPrice: 40
+            },
+            {
+                atomNo: "98",
+                shortName: "Şn",
+                name: "Şinitzel",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "13",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 119,
+                minPrice: 1
+            },
+            {
+                atomNo: "99",
+                shortName: "Kv",
+                name: "Körili Tavuk",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "14",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 120,
+                minPrice: 1
+            },
+            {
+                atomNo: "100",
+                shortName: "Ör",
+                name: "Ördek",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "15",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 121,
+                minPrice: 1
+            },
+            {
+                atomNo: "101",
+                shortName: "Bf",
+                name: "Biftek",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "16",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 122,
+                minPrice: 1
+            },
+            {
+                atomNo: "102",
+                shortName: "Bu",
+                name: "Buritto",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "17",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 123,
+                minPrice: 1
+            },
+            {
+                atomNo: "103",
+                shortName: "Cp",
+                name: "Cafe&nbspDe Paris",
+                parent: "universal", groupName: "Dünya Mutfağı",
+                groupNo: "18",
+                periodicNo: "9",
+                group: "aktinitler",
+                tableNo: 124,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "104",
+                shortName: "Ci",
+                name: "Ciğer",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "4",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 79,
+                minPrice: 1
+
+            },
+            {
+                atomNo: "105",
+                shortName: "Bt",
+                name: "Beyti",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "5",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 80,
+                minPrice: 1
+            },
+            {
+                atomNo: "106",
+                shortName: "İr",
+                name: "İskender",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "6",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 81,
+                minPrice: 1
+            },
+            {
+                atomNo: "107",
+                shortName: "Pl",
+                name: "Patlıcanlı Kebap",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "7",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 82,
+                minPrice: 1
+            },
+            {
+                atomNo: "108",
+                shortName: "Td",
+                name: "Tandır",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "8",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 83,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "117",
+                shortName: "Kü",
+                name: "Künefe",
+                parent: "dessert", groupName: "Tatlı",
+                groupNo: "17",
+                periodicNo: "7",
+                group: "halojen",
+                tableNo: 88,
+                minPrice: 1
+            },
+            {
+                atomNo: "112",
+                shortName: "Kb",
+                name: "Karışık Kebap",
+                parent: "mainMeal", groupName: "Ana Yemek",
+                groupNo: "12",
+                periodicNo: "7",
+                group: "geçiş metali",
+                tableNo: 85,
+                minPrice: 1
+            },
+
+
+            ]
+
+        }
+        //açılacak sayfa id'si
+        var openingScreen = 'landing';
+        //senin lezzet kimyan sayfası için kullanıcı favorileri
+        var userFavorites = [
+            [{
+                atomNo: "38",
+                shortName: "Ma",
+                name: "Makarna",
+                parent: "hamur",
+                groupNo: "2",
+                periodicNo: "5",
+                group: "toprak alkali metal",
+                tableNo: 74,
+                eaten: true,
+                minPrice: 1
+            },
+            {
+                atomNo: "14",
+                shortName: "Dm",
+                name: "Domates Çorbası",
+                parent: "soup",
+                groupNo: "14",
+                periodicNo: "3",
+                group: "yarı metal",
+                tableNo: 50,
+                minPrice: 15
+            }, {
+
+                atomNo: "49",
+                shortName: "Py",
+                name: "Piyaz",
+                parent: "salatalar",
+                groupNo: "13",
+                periodicNo: "5",
+                group: "metal",
+                tableNo: 85,
+                minPrice: 15
+            }
+            ],
+            [
+                {
+                    atomNo: "89",
+                    shortName: "Ki",
+                    name: "Kinoa Salatası",
+                    parent: "universal",
+                    groupNo: "4",
+                    periodicNo: "9",
+                    group: "aktinitler",
+                    tableNo: 164,
+                    minPrice: 1
+                },
+                {
+                    atomNo: "58",
+                    shortName: "Kf",
+                    name: "Kuru Fasulye",
+                    parent: "local",
+                    groupNo: "5",
+                    periodicNo: "8",
+                    group: "lantanit",
+                    tableNo: 147,
+                    minPrice: 1
+                },
+                {
+                    atomNo: "50",
+                    shortName: "As",
+                    name: "Akdeniz Salatası",
+                    parent: "salatalar",
+                    groupNo: "14",
+                    periodicNo: "5",
+                    group: "metal",
+                    tableNo: 86,
+                    minPrice: 1
+                }
+            ],
+            [
+                {
+                    atomNo: "33",
+                    shortName: "Ez",
+                    name: "Ezogelin",
+                    parent: "soup",
+                    groupNo: "15",
+                    periodicNo: "4",
+                    group: "yarı metal",
+                    tableNo: 69,
+                    eaten: true,
+                    minPrice: 1
+                },
+                {
+                    atomNo: "4",
+                    shortName: "Kp",
+                    name: "Krep",
+                    parent: "hamur",
+                    groupNo: "2",
+                    periodicNo: "2",
+                    group: "toprak alkali metal",
+                    tableNo: 20,
+                    minPrice: 1
+                },
+                {
+                    atomNo: "80",
+                    shortName: "Kç",
+                    name: "Kokoreç",
+                    parent: "mainMeal",
+                    groupNo: "12",
+                    periodicNo: "6",
+                    group: "geçiş metali",
+                    tableNo: 102,
+                    minPrice: 1
+                }
+            ]
+        ];
+
+    </script>
+</head>
+
+<body>
+
+    <div id="container" data-font="26">
+
+        <div id="backgrounds" class="page">
+            <div class="backgrounds__landing"></div>
+            <div class="backgrounds__table"></div>
+        </div>
+
+        <div id="landing-icon" class="table-remained">
+
+            <div id="table-close-box">
+                <div class="table-close-box__closer">
+                    <span>
+                        <svg>
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#close-icon" />
+                        </svg>
+                    </span>
+                    <p>Yakınlaştır</p>
+                </div>
+
+                <div class="table-close-box__closer minify">
+                    <span>
+                        <svg>
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#minify-icon" />
+                        </svg>
+                    </span>
+                    <p>Tabloya dön</p>
+                </div>
+            </div>
+
+            <div id="ysLogo">
+                <svg class="ysLogo">
+                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysLogo" />
+                </svg>
+
+            </div>
+
+            <div id="periodicTableLogo">
+                <svg class="periodicTableLogo">
+                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#periodicTableLogo" />
+                </svg>
+            </div>
+        </div>
+
+        <div id="landing" class="page periodic-ratio" style="opacity:0;visibility:hidden">
+
+            <div id="landing__header">
+                <svg class="landingLogo">
+                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#landingLogo" />
+                </svg>
+            </div>
+
+            <div id="landing__texture">
+                <p>
+                    Semtindeki tüm lezzetleri bir arada gör,<br>
+                    <span>lezzetin kimyasını keşfet!</span>
+                </p>
+            </div>
+
+            <div id="connect-with-ys-box">
+                <button type="button" id="connect-with-ys-box__button" class="landing__btn">
+                    <span>Yemeksepeti ile bağlan </span>
+                    <div class="connect-with-ys-box__arrow-box">
+                        <svg class="arrowLongLeft">
+                            <use x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/inc/maps.svg#arrowLongLeft"></use>
+                        </svg>
+                    </div>
+
+                </button>
+            </div>
+
+            <div id="connect-without-ys-box">
+                <button type="button" id="connect-widthout-ys-box__button" class="landing__btn">
+                    <span>Bağlanmadan kurcala</span>
+                    <div class="connect-without-ys-box__arrow-box">
+                        <svg class="arrowRightShort">
+                            <use x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/inc/maps.svg#arrowRightShort"></use>
+                        </svg>
+                    </div>
+
+                </button>
+            </div>
+
+        </div>
+
+        <div id="connect-without-ys" class="page periodic-ratio posAb" style="opacity:0;visibility:hidden">
+            <div id="connect-without-ys__header">
+                <p>
+                    Şehir ve Semtini seçerek,
+                    <span>elementleri aktif et!</span>
+                </p>
+            </div>
+
+            <div id="connect-without-ys__city-input">
+                <div class="select-arrow">
+                    <svg class="downArrow">
+                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                    </svg>
+                </div>
+                <select id="city-select" data-placeholder="Şehir">
+                    <option>İstanbul</option>
+                    <option>İzmir</option>
+                    <option>Ankara</option>
+                    <option>Bursa</option>
+                    <option>Adana</option>
+                </select>
+            </div>
+
+            <div id="connect-without-ys__district-input">
+                <div class="select-arrow">
+                    <svg class="downArrow">
+                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                    </svg>
+                </div>
+                <select id="district-select" data-placeholder="Semt">
+                    <option>Beşiktaş</option>
+                    <option>Şişli</option>
+                    <option>Bakırköy</option>
+                    <option>Avcılar</option>
+                    <option>Kadıköy</option>
+                    <option>Beşiktaş</option>
+                    <option>Şişli</option>
+                    <option>Bakırköy</option>
+                    <option>Avcılar</option>
+                    <option>Kadıköy</option>
+                    <option>Beşiktaş</option>
+                    <option>Şişli</option>
+                    <option>Bakırköy</option>
+                    <option>Avcılar</option>
+                    <option>Kadıköy</option>
+                    <option>Beşiktaş</option>
+                    <option>Şişli</option>
+                    <option>Bakırköy</option>
+                    <option>Avcılar</option>
+                    <option>Kadıköy</option>
+                    <option>Beşiktaş</option>
+                    <option>Şişli</option>
+                    <option>Bakırköy</option>
+                    <option>Avcılar</option>
+                    <option>Kadıköy</option>
+                </select>
+            </div>
+
+            <div id="connect-without-ys__btn-box">
+                <button type="button" id="connect-without-ys__btn">
+                    <span>Giriş Yap</span>
+                    <div id="connect-without-ys__svg-box">
+                        <svg class="arrowRightShort">
+                            <use x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/inc/maps.svg#arrowRightShort"></use>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="periodic-table" class="page" style="opacity:0;visibility:hidden">
+
+            <div id="periodic-table__container" class="posAb periodic-ratio">
+
+                <div id="periodic-table__table" class="periodic-ratio posAb">
+
+                    <div id="periodic-table_table__texture">
+                        <div id="periodic-table_table__texture__empty-selection">
+                            <p>
+                                Tablodan bir element seç,<br />
+                                <span>siparişini hazırlamaya başla!</span>
+                            </p>
+
+                        </div>
+                        <div id="periodic-table_table__texture__ready-selection">
+                            <p class="selected-table-text">
+                                Lezzetli elementlere artık çok yakınsın,<br />
+                                <span> tamamla ve sipariş ver!</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="periodic-table__arrow-box posAb">
+                <span>
+                    <svg>
+                        <use x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/inc/maps.svg#prev-arrow-icon"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="periodic-table__arrow-box posAb right">
+                <span>
+                    <svg>
+                        <use x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/inc/maps.svg#prev-arrow-icon"></use>
+                    </svg>
+                </span>
+            </div>
+            <div id="table-closure-box" class="posAb">
+                <div>
+
+                </div>
+                <img src="assets/images/fade-grids.png" class="posAb" />
+            </div>
+            <canvas class=" posAb" id="table-canvas" width="150" height="150"></canvas>
+        </div>
+
+        <div id="filter-box" class="page" style="opacity:0;visibility:hidden">
+
+            <div id="filter-box__user-box">
+
+                <div class="table-remained"></div>
+
+                <div id="filter-box__user-content">
+                    <div id="filter-box__user-box__user" class="dot-box">
+
+                        <div id="filter-box__user-box__user__option">
+                            <p id="filter-box__user-box__user__option__code">34</p>
+                            <p id="filter-box__user-box__user__option__name-first-letter">B</p>
+                        </div>
+
+
+                        <div id="filter-box__user-box__user__option_unconnected-user">
+                            <p id="filter-box__user-box__user__option__code">06</p>
+                            <p id="filter-box__user-box__user__option__name-first-letter">A</p>
+                        </div>
+
+
+
+                        <span class="line top"></span>
+                        <span class="line left"></span>
+                        <span class="line bottom"></span>
+                        <span class="line right"></span>
+
+                        <div class="dot topLeft"></div>
+                        <div class="dot topRight"></div>
+                        <div class="dot bottomRight"></div>
+                        <div class="dot bottomLeft"></div>
+
+                    </div>
+
+                    <div id="filter-box__user-info">
+                        <p id="unconnected-user__city-name">Ankara - Bahçelievler</p>
+                        <p>Burak Şahin Erden</p>
+                        <div id="filter-box__address-select">
+                            <div class="select-arrow">
+                                <svg class="downArrow">
+                                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                                </svg>
+                            </div>
+                            <select data-placeholder="Ev - Ayazağa">
+                                <option>Ev - Ayazağa</option>
+                                <option>İş - Fulya</option>
+                                <option>İş 2 - Beşiktaş</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="filter-box__taste-chemical">
+                    <p>Senin Lezzet Kimyan</p>
+                    <div id="filter-box__taste-chemical__corner">
+                        <svg class="arrowDownRight">
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#arrowDownRight" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div id="unconnected-user__filter-connect-ys">
+                    <button>Yemeksepeti ile bağlan </button>
+                </div>
+
+            </div>
+
+
+            <div id="filter-box__filter-content">
+                <div id="filter-box__selection-box">
+
+                    <div id="filter-box__selection-box__baloon">
+                        <p>
+                            Elementlerim
+                        </p>
+                        <span id="trash-can">
+                            <svg class="arrowDownRight">
+                                <use x="0" y="0" xlink:href="assets/inc/maps.svg#deleteIcon" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div id="filter-box__selection-box__element-container">
+                        <div class="filter-box__selection-box__element dot-box">
+                            <div class="filter-box__element-delete">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                        </div>
+                        <div class="filter-box__selection-box__element">
+                            <div class="filter-box__element-delete">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="filter-box__selection-box__element dot-box">
+                            <div class="filter-box__element-delete">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+                            <span class="box-line"></span>
+
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                            <div class="dot-box__dot"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <button type="button" id="filter-box__selection-box__order-btn">
+                    <span>
+                        <span class="user-profile__btn__icon">
+                            <svg class="ysRunningMan">
+                                <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                            </svg>
+                        </span>
+                        <p>Sipariş Ver!</p>
+                    </span>
+                </button>
+                <div id="filter-box__slider">
+                    <div id="menu__sliders">
+                        <div id="filter-total-price" class="dragdealer">
+                            <p>Min. Paket Tutarı</p><p>Hepsi</p>
+                            <div class="handle"></div>
+                        </div>
+
+                        <div id="filter-product-price" class="dragdealer">
+                            <p>Ürün Tutarı</p><p>Hepsi</p>
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="filter-box__filter-container">
+                    <div id="menu__filters">
+
+                        <div id="filters_fiters-box">
+                            <div class="filter" data-parent="startUp">
+                                <div class="active"><p>Başlangıçlar</p></div>
+                                <div class="passive"><p>Başlangıçlar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="hamur">
+                                <div class="active"><p>Hamur İşler</p></div>
+                                <div class="passive"><p>Hamur İşler</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="mainMeal">
+                                <div class="active"><p>Ana Yemek</p></div>
+                                <div class="passive"><p>Ana Yemek</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="salatalar">
+                                <div class="active"><p>Salatalar</p></div>
+                                <div class="passive"><p>Salatalar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="soup">
+                                <div class="active"><p>Çorbalar</p></div>
+                                <div class="passive"><p>Çorbalar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="drinks">
+                                <div class="active"><p>İçecekler</p></div>
+                                <div class="passive"><p>İçecekler</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="dessert">
+                                <div class="active"><p>Tatlılar</p></div>
+                                <div class="passive"><p>Tatlılar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="breakfast">
+                                <div class="active"><p>Kahvaltılar</p></div>
+                                <div class="passive"><p>Kahvaltılar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="local">
+                                <div class="active"><p>Yöresel Tatlar</p></div>
+                                <div class="passive"><p>Yöresel Tatlar</p></div>
+                                <div class="roller"></div>
+                            </div>
+                            <div class="filter" data-parent="universal">
+                                <div class="active"><p>Dünya Mutfağı</p></div>
+                                <div class="passive"><p>Dünya Mutfağı</p></div>
+                                <div class="roller"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="filter-box__select-all" class="table-remained">
+                        <p>Hepsini Seç</p>
+                        <div class="checkbox selected">
+                            <span class="posAb"></span>
+                            <span class="posAb"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="privacy" class="page overlay" style="opacity:0;visibility:hidden">
+
+            <div class="overlay-content">
+
+                <div class="close-overlay" data-target="privacy">
+                    <span class="posAb"></span>
+                    <span class="posAb"></span>
+                </div>
+                <div id="privacy__header">
+                    <div class="privacy__header__tab privacy__header__tab-left selected" data-target="first">
+                        <p>Gizlilik Politikası</p>
+                    </div>
+                    <div class="privacy__header__tab privacy__header__tab-right" data-target="second">
+                        <p>Gizlilik Politikası</p>
+                    </div>
+                </div>
+
+                <div class="privacy_content privacy_content-first selected" ss-container data-target="first">
+                    <article>
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+
+                            <h2>E-posta Adresiniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+
+                            <h2>E-posta Adresiniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+                    </article>
+
+                </div>
+                <div class="privacy_content privacy_content-second" ss-container data-target="second">
+
+                    <article>
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz 2</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+
+                            <h2>E-posta Adresiniz 2</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+
+                            <h2>E-posta Adresiniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+                    </article>
+
+
+                </div>
+
+
+                <div id="privacy__footer">
+                    <div class="checkbox">
+                        <span class="posAb"></span>
+                        <span class="posAb"></span>
+                    </div>
+                    <p>Onaylıyorum</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="sss" class="page overlay" style="opacity:0;visibility:hidden">
+
+            <div class="overlay-content">
+
+                <div class="close-overlay" data-target="sss">
+                    <span class="posAb"></span>
+                    <span class="posAb"></span>
+                </div>
+
+                <div class="sss__content" ss-container>
+                    <article>
+                        <section>
+                            <h2>SSS</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2>SSS</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+
+
+                    </article>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-of-use" class="page overlay" style="opacity:0;visibility:hidden">
+
+            <div class="overlay-content">
+
+                <div class="close-overlay" data-target="terms-of-use">
+                    <span class="posAb"></span>
+                    <span class="posAb"></span>
+                </div>
+
+                <div class="terms-of-use__content" ss-container>
+                    <article>
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2>Kişisel İletişim Bilgileriniz</h2>
+                            <p>
+                                Web Sitesi üzerinden herhangi bir sipariş vermek için, adınızı, soyadınızı, ev ya da diğer fiziksel adresinizi (sokak adı, semt, il gibi bilgileri içerecek şekilde), telefon numaranızı ve diğer gerçek yaşam kişisel bilgilerinizi bizimle paylaşmanız gerekmektedir. Kişisel bilgilerinizin üzerinde değişiklik yapabilir, yanlışlıkları düzeltmek için gerekli düzenlemeleri kayıt olduktan sonra yapabilirsiniz. Eğer bizimle paylaştığınız detayları izlemek ya da değiştirmek isterseniz, kullanıcı ana sayfanızda bulunan “Üyelik Bilgilerim” linkine tıklayarak hesap detaylarınıza giriş yapabilirsiniz. Lokasyonunuza bağlı olarak birden fazla kayıtlı adresiniz olabilir. Kişisel bilgilerinizin bir kısmı (ad, soyad, siparişinizin gönderileceği kayıtlı adresiniz ve telefon numaranız) sipariş verdiğiniz restoran ile paylaşılmaktadır. Bu bilgiler aynı zamanda Web Sitesi’nin kullanımını geliştirmek, sizinle iletişim kurmak, şirket içi gereksinimler için ve hukuki açıdan gerekli olduğu durumlarda kullanılmaktadır. Bu bilgiler, çalışanlarımızla veya üçüncü partilerle siparişin iletilme aşamalarından herhangi birinde paylaşılabilir ya da Web Sitesi’ni kullanımınızın analizinde ve desteğinde kullanılabilir. İzniniz olmadan, gizlilik politikasında belirtilen kullanım alanları haricinde üçüncü partilerle bilgilerinizi paylaşmıyor ya da bilgilerinizi üçüncü partilere satmıyoruz
+                            </p>
+                        </section>
+
+
+
+                    </article>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="selected-element-container" class="page" style="opacity:0;visibility:hidden">
+            <div id="element-detail">
+                <div id="element-detail__close">
+                    <div>
+                        <svg>
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#downDetailArrow" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="dtF" id="element-detail__add-element">
+                    <div class="dtc">
+                        <div id="element-detail__element-box" class="element-detail__selected-container dot-box">
+                            <div class="sideElement"></div>
+                            <div class="sideElement"></div>
+                            <div class="element big">
+                                <p class="atomNo"></p>
+                                <p class="shortName"></p>
+                                <p class="name"></p>
+                            </div>
+
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <span class="dot topLeft"></span>
+                            <span class="dot topRight"></span>
+                            <span class="dot bottomRight"></span>
+                            <span class="dot bottomLeft"></span>
+                        </div>
+                        <div id="element-detail__detail-text">
+                            <div class="dtF">
+                                <div class="dtc">
+                                    <p id="element-detail__detail-text__top">Sokak mutfağının bir buluşu olan patates kızartmasının nasıl icat edildiği tam olarak bilinmemektedir.</p>
+                                    <p id="element-detail__detail-text__bottom">Fransız tarihçi Madeleine Ferriere'nin bilim dünyasında kabul gören iddiasına göre bu yiyecek Fransız Devrimi'inde bir süre önce Paris'teki, Pont Neuf'de sokak satıcıları tarafından icat edilmiştir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="element-detail__add-btn">
+                            <button type="button">
+
+                                <span>
+                                    <svg>
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#addIcon" />
+                                    </svg>
+                                </span>
+                                <p>
+                                    Element Ekle
+                                </p>
+                            </button>
+                        </div>
+                        <div id="element-detail__selected-count">
+                            <div id="element-detail__selected-count__product">
+                                <p>
+                                    Seçimine özel olarak <a href="https://www.yemeksepeti.com" target="_blank">Yemeksepeti'nde</a> <span>9 restoran</span> ve <span>43 ürün</span> bulduk.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div id="element-detail__button-box">
+                            <div id="element-detail__order">
+                                <button type="button">
+                                    <span>
+                                        <svg class="ysRunningMan">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                        </svg>
+                                    </span>
+                                    <p>  Sipariş Ver!</p>
+
+
+                                </button>
+                            </div>
+                            <div id="elemen-detail__share-box">
+                                <button type="button">
+                                    <span>
+                                        <svg class="elementShareIcon">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#elementShareIcon" />
+                                        </svg>
+                                    </span>
+                                    <p>Paylaş</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dtF" id="element-detail__order-box">
+                    <div class="dtc">
+                        <h3>Muazzam Seçim</h3>
+                        <p id="element-detail__order-box__header-text">
+                            Periyedik Tablo’dan siparişini oluşturup lezzetin kimyasını keşfettin!<br>
+                            <span>İşte senin lezzet kimyan! [<span id="element-detail__order-box__order-shortnames">EkPtKo</span>]</span>
+                        </p>
+                        <div id="element-detail__all-selected-elements" class="element-detail__selected-container">
+
+                            <div class="element-detail__selected dot-box">
+                                <span class="dot topLeft"></span>
+                                <span class="dot topRight"></span>
+                                <span class="dot bottomRight"></span>
+                                <span class="dot bottomLeft"></span>
+                                <div class="line top"></div>
+                                <div class="line bottom"></div>
+                                <img src="assets/images/lines.png" />
+                            </div>
+
+                            <div class="element-detail__selected dot-box">
+                                <span class="dot topRight"></span>
+                                <span class="dot bottomRight"></span>
+                                <div class="line top"></div>
+                                <div class="line bottom"></div>
+                            </div>
+
+                            <div class="element-detail__selected dot-box">
+                                <span class="dot topRight"></span>
+                                <span class="dot bottomRight"></span>
+                                <div class="line top"></div>
+                                <div class="line bottom"></div>
+
+                            </div>
+                        </div>
+
+                        <div id="element-detail__order-box__button-box">
+                            <div id="element-detail__order-box__order">
+                                <button type="button">
+                                    <span>
+                                        <svg class="ysRunningMan">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                        </svg>
+                                    </span>
+                                    <p>  Sipariş Ver!</p>
+
+
+                                </button>
+                            </div>
+                            <div id="element-detail__order-box__share-box">
+                                <button type="button">
+                                    <span>
+                                        <svg class="elementShareIcon">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#elementShareIcon" />
+                                        </svg>
+                                    </span>
+                                    <p>Paylaş</p>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="element-detail__order-box__order-text">
+                            <div id="element-detail__selected-count__product">
+                                <p>
+                                    <span id="element-detail__selected-count__selected-elements"></span> <span class="element-detail__selected-texture"></span> <a href="https://www.yemeksepeti.com" target="_blank">Yemeksepeti'nde</a> bulunduran <span>
+                                        <!--<span class="icons">
+                                            <svg class="posAb">
+                                                <use x="0" y="0" xlink:href="assets/inc/maps.svg#restaurant-icon" />
+                                            </svg>
+                                        </span>-->
+                                        9 restoran
+                                    </span>
+                                    <span class="single-product-text">
+                                        ve
+
+                                        <span>
+                                            <!--<span class="icons posAb">
+                                                <svg class="posAb product">
+                                                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#product-icon" />
+                                                </svg>
+                                            </span>-->
+                                            67 ürün
+                                        </span>
+                                    </span>
+                                    bulduk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="user-profile" class="page" style="opacity:0;visibility:hidden">
+
+            <div id="user-profile__header">
+
+                <div id="user-profile__header__back-to-table">
+                    <span class="arrowDownRight">
+                        <svg class="arrowDownRight">
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#arrowDownRight" />
+                        </svg>
+                    </span>
+
+                    <p>Tabloya Dön</p>
+                </div>
+
+
+                <div id="user-profile__header__logo">
+                    <svg class="periodicTableLogo">
+                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#periodicTableLogo" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <div id="user__profile__container" ss-container>
+                <div id="user__profile__content">
+
+                    <div id="user__profile__content__chemical">
+                        <h3>
+                            <span>Senin</span><br>
+                            Lezzet<br>
+                            Kimyan
+                        </h3>
+                        <span class="user__profile__content__chemical__line"></span>
+                        <span class="user__profile__content__chemical__line bottom"></span>
+                        <div id="user__profile__content__chemical__select-box">
+                            <div class="select-arrow">
+                                <svg class="downArrow">
+                                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                                </svg>
+                            </div>
+                            <select data-placeholder="Ev - Ayazağa">
+                                <option>Ev - Ayazağa</option>
+                                <option>İş - Fulya</option>
+                                <option>İş 2 - Beşiktaş</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="safe" id="user-profile__favorite-content">
+
+                        <div id="user-profile__favorite-content__favorite-element-box">
+                            <div id="user-profile__favorite-content__favorite-element-box__element" class="dot-box user-profile__element-single-box">
+                                <div class="element" data-parent="mainMeal">
+                                    <p class="atomNo">44</p>
+                                    <p class="shortName">Tp</p>
+                                    <p class="name">Tavuk Pilav</p>
+                                </div>
+                                <div class="line top"></div>
+                                <div class="line left"></div>
+                                <div class="line bottom"></div>
+                                <div class="line right"></div>
+                                <span class="dot topLeft"></span>
+                                <span class="dot topRight"></span>
+                                <span class="dot bottomRight"></span>
+                                <span class="dot bottomLeft"></span>
+                            </div>
+                            <div class="plus-box">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span></span>
+                            <br>
+                            <div id="user-profile__favorite-content__favorite-element-box__element-detail">
+                                <h4><span>Favori Elementin</span></h4>
+                                <p class="user-profile__texture">
+                                    Her menüde gözü ilk döneri arayanlardansın. <span class="bg">Dürümü, porsiyonu, kaşarlısı, tombiği, pilav üstüsü yarımı...</span> Hiçbir şeye değişmez dönerci, dönerinin tadını. Dönerin öğünü olmaz, canın çektikten sonra her öğün döner öğününe dönüşebilir. <span>Favori elementin Periyedik Tablo’nun DÖ elementi, dönerle sana ömür boyu mutluluklar.</span>
+                                </p>
+
+                                <button type="button" class="user-profile__btn">
+                                    <span>
+                                        <span class="user-profile__btn__icon">
+                                            <svg class="ysRunningMan">
+                                                <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                            </svg>
+                                        </span>
+                                        <span>Sipariş Ver!</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="user-profile__favorite-content__favorite-compound">
+
+                            <h4>[]</h4>
+
+                            <div>
+
+                                <div class="user-profile__favorite-content__favorite-compound__arrow">
+                                    <span>
+                                        <svg class="downArrow">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div id="user-profile__favorite-content__favorite-compound__slider">
+
+                                    <div class="user-profile__favorite-content__favorite-compound__slider__slide">
+
+                                        <div class="dot-box element">
+                                            <div>
+                                                <p class="atomNo"></p>
+                                                <p class="shortName"></p>
+                                                <p class="name"></p>
+                                            </div>
+                                            <div class="line top"></div>
+                                            <div class="line left"></div>
+                                            <div class="line bottom"></div>
+
+                                            <span class="dot topLeft"></span>
+                                            <span class="dot topRight"></span>
+                                            <span class="dot bottomRight"></span>
+                                            <span class="dot bottomLeft"></span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="user-profile__favorite-content__favorite-compound__slider__slide">
+
+                                        <div class="dot-box element">
+                                            <div>
+                                                <p class="atomNo"></p>
+                                                <p class="shortName"></p>
+                                                <p class="name"></p>
+                                            </div>
+                                            <div class="line top"></div>
+                                            <div class="line left"></div>
+                                            <div class="line bottom"></div>
+                                            <div class="line right"></div>
+                                            <span class="dot topLeft"></span>
+                                            <span class="dot topRight"></span>
+                                            <span class="dot bottomRight"></span>
+                                            <span class="dot bottomLeft"></span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="user-profile__favorite-content__favorite-compound__slider__slide">
+
+                                        <div class="dot-box element">
+                                            <div>
+                                                <p class="atomNo"></p>
+                                                <p class="shortName"></p>
+                                                <p class="name"></p>
+                                            </div>
+                                            <div class="line top"></div>
+                                            <div class="line left"></div>
+                                            <div class="line bottom"></div>
+                                            <div class="line right"></div>
+                                            <span class="dot topLeft"></span>
+                                            <span class="dot topRight"></span>
+                                            <span class="dot bottomRight"></span>
+                                            <span class="dot bottomLeft"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="user-profile__favorite-content__favorite-compound__arrow right">
+                                    <span>
+                                        <svg class="downArrow">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#downArrow" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="user-profile__favorite-compound-order" class="safe">
+                        <h4><span>Favori Bileşiklerin</span></h4>
+                        <button id="user-profile__favorite-compound-order-btn" class="user-profile__btn">
+                            <span>
+                                <span class="user-profile__btn__icon">
+                                    <svg class="ysRunningMan">
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                    </svg>
+                                </span>
+                                <span>Sipariş Ver!</span>
+                            </span>
+                        </button>
+                        <div class="plus-box">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div id="user-profile__favorite-details">
+                        <div id="user-profile__favorite-details__element-container">
+                            <div class="user-profile__favorite-details__element-container__elements">
+
+                                <div class="user-profile__favorite-details__element-container__elements__box active">
+
+                                    <div class="element dot-box" data-atomno="1" data-group="ametal" data-groupno="1" data-name="Su" data-parent="drinks" data-periodicno="1" data-shortname="Su" data-eaten="not-eaten" data-minprice="1" data-groupName="İçecek">
+                                        <div class="over-element posAb element" data-parent="drinks"></div>
+                                        <div>
+                                            <p class="atomNo">1</p>
+                                            <p class="shortName">Su</p>
+                                            <p class="name">Su</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="3" data-group="alkali metal" data-groupno="1" data-name="Patates Kızartması" data-parent="startUp" data-periodicno="2" data-shortname="Pt" data-eaten="not-eaten" data-minprice="1" data-groupName="Başlangıç">
+                                        <div class="over-element posAb element" data-parent="startUp"></div>
+                                        <div>
+                                            <p class="atomNo">3</p>
+                                            <p class="shortName">Pt</p>
+                                            <p class="name">Patates Kızartması</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" ata-atomno="106" data-group="geçiş metali" data-groupno="6" data-name="İskender" data-parent="mainMeal" data-periodicno="7" data-shortname="İr" data-eaten="not-eaten" data-minprice="1" data-groupName="Ana Yemek">
+                                        <div class="over-element posAb element" data-parent="mainMeal"></div>
+                                        <div>
+                                            <p class="atomNo">106</p>
+                                            <p class="shortName">İr</p>
+                                            <p class="name">İskender</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" ata-atomno="20" data-group="toprak alkali metal" data-groupno="2" data-name="Lahmacun" data-parent="hamur" data-periodicno="4" data-shortname="La" data-eaten="not-eaten" data-minprice="1" data-groupName="Hamur İşi">
+                                        <div class="over-element posAb element" data-parent="hamur"></div>
+                                        <div>
+                                            <p class="atomNo">20</p>
+                                            <p class="shortName">La</p>
+                                            <p class="name">Lahmacun</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="49" data-group="metal" data-groupno="13" data-name="Piyaz" data-parent="salatalar" data-periodicno="5" data-shortname="Py" data-eaten="not-eaten" data-minprice="15" data-groupName="Salata">
+                                        <div class="over-element posAb element" data-parent="salatalar"></div>
+                                        <div>
+                                            <p class="atomNo">49</p>
+                                            <p class="shortName">Py</p>
+                                            <p class="name">Piyaz</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="32" data-group="yarı metal" data-groupno="14" data-name="Tavuk Suyu" data-parent="soup" data-periodicno="4" data-shortname="Tu" data-eaten="not-eaten" data-minprice="1" data-groupName="Çorba">
+                                        <div class="over-element posAb element" data-parent="soup"></div>
+                                        <div>
+                                            <p class="atomNo">32</p>
+                                            <p class="shortName">Tu</p>
+                                            <p class="name">Tavuk Suyu</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="53" data-group="halojen" data-groupno="17" data-name="Sufle" data-parent="dessert" data-periodicno="5" data-shortname="Sf" data-eaten="not-eaten" data-minprice="1" data-groupName="Tatlı">
+                                        <div class="over-element posAb element" data-parent="dessert"></div>
+                                        <div>
+                                            <p class="atomNo">53</p>
+                                            <p class="shortName">Sf</p>
+                                            <p class="name">Sufle</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="36" data-group="soygaz" data-groupno="18" data-name="Menemen" data-parent="breakfast" data-periodicno="4" data-shortname="Mn" data-eaten="not-eaten" data-minprice="1" data-groupName="Kahvaltı">
+                                        <div class="over-element posAb element" data-parent="breakfast"></div>
+                                        <div>
+                                            <p class="atomNo">36</p>
+                                            <p class="shortName">Mn</p>
+                                            <p class="name">Menemen</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="59" data-group="lantanit" data-groupno="6" data-name="Humus" data-parent="local" data-periodicno="8" data-shortname="Hu" data-eaten="eaten" data-minprice="35" data-groupName="Yöresel Tatlar">
+                                        <div class="over-element posAb element" data-parent="local"></div>
+                                        <div>
+                                            <p class="atomNo">59</p>
+                                            <p class="shortName">Hı</p>
+                                            <p class="name">Humus</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box">
+
+                                    <div class="element dot-box" data-atomno="90" data-group="aktinitler" data-groupno="5" data-name="Falafel" data-parent="universal" data-periodicno="9" data-shortname="Fl" data-eaten="not-eaten" data-minprice="1" data-groupName="Dünya Mutfağı">
+                                        <div class="over-element posAb element" data-parent="universal"></div>
+                                        <div>
+                                            <p class="atomNo">90</p>
+                                            <p class="shortName">Fl</p>
+                                            <p class="name">Falafel</p>
+                                        </div>
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="user-profile__favorite-details__element-container__detail">
+                                <div data-brackets-id="52189" class="plus-box">
+                                    <span data-brackets-id="52190"></span>
+                                    <span data-brackets-id="52191"></span>
+                                </div>
+                                <h4>İçecek Favorin: <span>Su</span></h4>
+                                <div>
+                                    <p class="user-profile__texture">
+                                        <span class="bg">
+                                            İskender denildi mi senin için akan sular durur. Yaprak yaprak eti, cozurdayan tereyağı, mis gibi sosu, yanında ferahlatan yoğurdu…
+                                        </span>
+                                        Bütün dünya birleşse,
+                                        bir yemek ancak bu kadar lezzetli olurdu. Öğlen iskenderi mi daha güzel yoksa
+                                        akşam yeneni mi?
+                                        <span>
+                                            Bu bir muamma. Ama kesin olan bir şey var, Periyedik Tablo’nun Geçiş Metali kategorisinde favori elementin iskender. Afiyetler!
+                                        </span>
+                                    </p>
+
+                                    <button type="button" class="user-profile__btn">
+                                        <span>
+                                            <span class="user-profile__btn__icon">
+                                                <svg class="ysRunningMan">
+                                                    <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                                </svg>
+                                            </span>
+                                            <span>Sipariş Ver!</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="user-profile__timeline" class="safe">
+                        <div id="user-profile__timeline__line-box">
+                            <div class="morning active">
+                                <span class="posAb">
+                                    <svg>
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#morning-icon" />
+                                    </svg>
+                                </span>
+                                <div class="user-profile__timeline__seperator active">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+
+                            <div class="noon">
+                                <span class="posAb">
+                                    <svg>
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#noon-icon" />
+                                    </svg>
+                                </span>
+                                <div class="user-profile__timeline__seperator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="evening">
+                                <span class="posAb">
+                                    <svg>
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#evening-icon" />
+                                    </svg>
+                                </span>
+                                <div class="user-profile__timeline__seperator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="night">
+                                <span class="posAb">
+                                    <svg>
+                                        <use x="0" y="0" xlink:href="assets/inc/maps.svg#night-icon" />
+                                    </svg>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div id="user-profile__timeline__text">
+                            <h4>
+                                Öğünlere Göre Favorin:
+                                <span data-meal="night">Gece&nbspAcıkması</span>
+                                <span data-meal="evening">Akşam&nbspAcıkması</span>
+                                <span data-meal="noon">Öğlen&nbspAcıkması</span>
+                                <span data-meal="morning" class="active">Sabah&nbspAcıkması</span>
+
+                            </h4>
+                            <div id="user-profile__timeline__text__slider">
+                                <div>
+                                    <div class="active">
+                                        <p class="user-profile__texture">
+                                            Sabah : <span class="bg"> İnsanlar ikiye ayrılır: gece uyuyanlar ve gece acıkanlar.</span>Kendinle gurur duymakta haklısın, sen geceleri uyuyarak harcamayanlardansın. Filmiydi, dizisiydi, muhabbeti, dersiydi derken uyuymamak için hep bir sebep var. Tabi oturdukça bir de karnın acıkması var. <span class="bg">Acıkmaların en tatlısı gece acıkması bastırdıkça ver etmişsin siparişi, çok da iyi etmişsin. Sen bir gececisin!</span>
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="user-profile__texture">
+                                            Öğlen :  <span class="bg">İnsanlar ikiye ayrılır: gece uyuyanlar ve gece acıkanlar.</span>Kendinle gurur duymakta haklısın, sen geceleri uyuyarak harcamayanlardansın. Filmiydi, dizisiydi, muhabbeti, dersiydi derken uyuymamak için hep bir sebep var. Tabi oturdukça bir de karnın acıkması var. <span class="bg">Acıkmaların en tatlısı gece acıkması bastırdıkça ver etmişsin siparişi, çok da iyi etmişsin. Sen bir gececisin!</span>
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="user-profile__texture">
+                                            Akşam :  <span class="bg">İnsanlar ikiye ayrılır: gece uyuyanlar ve gece acıkanlar.</span>Kendinle gurur duymakta haklısın, sen geceleri uyuyarak harcamayanlardansın. Filmiydi, dizisiydi, muhabbeti, dersiydi derken uyuymamak için hep bir sebep var. Tabi oturdukça bir de karnın acıkması var. <span class="bg">Acıkmaların en tatlısı gece acıkması bastırdıkça ver etmişsin siparişi, çok da iyi etmişsin. Sen bir gececisin!</span>
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="user-profile__texture">
+                                            Gece :  <span class="bg">İnsanlar ikiye ayrılır: gece uyuyanlar ve gece acıkanlar.</span>Kendinle gurur duymakta haklısın, sen geceleri uyuyarak harcamayanlardansın. Filmiydi, dizisiydi, muhabbeti, dersiydi derken uyuymamak için hep bir sebep var. Tabi oturdukça bir de karnın acıkması var. <span class="bg">Acıkmaların en tatlısı gece acıkması bastırdıkça ver etmişsin siparişi, çok da iyi etmişsin. Sen bir gececisin!</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div id="user-profile__timeline__btn-box">
+
+                            <button data-brackets-id="51442" type="button" class="user-profile__btn">
+                                <span>
+                                    <span class="user-profile__btn__icon">
+                                        <svg class="ysRunningMan">
+                                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                        </svg>
+                                    </span>
+                                    <span>Sipariş Ver!</span>
+                                </span>
+                            </button>
+                            <div id="user-profile__timeline__btn-box__element" class="dot-box user-profile__element-single-box ">
+                                <div data-brackets-id="52189" class="plus-box">
+                                    <span data-brackets-id="52190"></span>
+                                    <span data-brackets-id="52191"></span>
+                                </div>
+
+                                <div class="element active" data-parent="breakfast" data-meal="morning">
+                                    <p class="atomNo">36</p>
+                                    <p class="shortName">Mn</p>
+                                    <p class="name">Menemen</p>
+                                </div>
+
+                                <div class="element" data-parent="salatalar" data-meal="noon">
+                                    <p class="atomNo">81</p>
+                                    <p class="shortName">Tb</p>
+                                    <p class="name">Ton balıklı Salata</p>
+                                </div>
+
+                                <div class="element" data-parent="universal" data-meal="evening">
+                                    <p class="atomNo">89</p>
+                                    <p class="shortName">Ki</p>
+                                    <p class="name">Lahmacun</p>
+                                </div>
+
+                                <div class="element" data-parent="mainMeal" data-meal="night">
+                                    <p class="atomNo">20</p>
+                                    <p class="shortName">La</p>
+                                    <p class="name">Lahmacun</p>
+                                </div>
+
+                                <div class="line top"></div>
+                                <div class="line left"></div>
+                                <div class="line bottom"></div>
+                                <div class="line right"></div>
+                                <span class="dot topLeft"></span>
+                                <span class="dot topRight"></span>
+                                <span class="dot bottomRight"></span>
+                                <span class="dot bottomLeft"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="user-profile__district">
+                        <div class="safe">
+                            <div class="user-profile__favorite-details__element-container__elements" data-parent="universal">
+
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box active profile-box">
+
+                                    <div class="element dot-box" data-parent="universal">
+
+                                        <div class="over-element posAb element"></div>
+
+                                        <p class="atomNo">112</p>
+                                        <p class="shortName">Ab</p>
+                                        <p class="name">Abısta</p>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+                                <div class="user-profile__favorite-details__element-container__elements__box profile-box">
+
+                                    <div class="element dot-box">
+                                        <div class="over-element posAb element"></div>
+
+                                        <div class="line top"></div>
+                                        <div class="line left"></div>
+                                        <div class="line bottom"></div>
+                                        <div class="line right"></div>
+                                        <span class="dot topLeft"></span>
+                                        <span class="dot topRight"></span>
+                                        <span class="dot bottomRight"></span>
+                                        <span class="dot bottomLeft"></span>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="user-profile__district__text">
+                                <h4>Semtin gizli lezzeti: <span>Abısta</span></h4>
+                                <p class="user-profile__texture">
+                                    Semtinin saklı hazinesi, gizli lezzeti, o nadir elementi hala keşfetmedin mi?<span class="bg">Unutma nadir elementler, nadir bulunurlar! Hadi, bas siparişi!</span>
+
+                                </p>
+                                <button type="button" class="user-profile__btn">
+                                    <span>
+                                        <span class="user-profile__btn__icon">
+                                            <svg class="ysRunningMan">
+                                                <use x="0" y="0" xlink:href="assets/inc/maps.svg#ysRunningMan" />
+                                            </svg>
+                                        </span>
+                                        <span>Sipariş Ver!</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="how-it-works-container" class="page">
+            <div id="how-it-works-container__box">
+                <div id="how-it-works-container__box__texture">
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="table-remained" style="opacity:0;visibility:hidden">
+            <div id="footer__nav">
+                <ul>
+
+                    <li>
+                        <p>
+                            PERİYEDİK TABLO <span>YEMEKSEPETİ UYGULAMASIDIR</span>
+                        </p>
+                    </li>
+
+                    <li class="footer__nav__seperator">
+                        <span></span>
+                    </li>
+
+                    <li class="target-overlay" data-target="privacy">
+                        <p>
+                            GİZLİLİK POLİTİKASI
+                        </p>
+                    </li>
+
+                    <li class="footer__nav__seperator">
+                        <span></span>
+                    </li>
+
+                    <li class="target-overlay" data-target="terms-of-use">
+                        <p>
+                            KULLANIM KOŞULLARI
+                        </p>
+                    </li>
+
+                    <li class="footer__nav__seperator">
+                        <span></span>
+                    </li>
+
+                    <li class="target-overlay" data-target="sss">
+                        <p>
+                            SSS
+                        </p>
+                    </li>
+
+                    <li class="footer__nav__seperator pt">
+                        <span></span>
+                    </li>
+
+                    <li class="pt" id="how-it-works">
+                        <p>
+                            <span>
+                                NASIL ÇALIŞIYOR
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="footer__action-box">
+
+                <div id="footer__social-box">
+                    <div id="footer__social-box__share-text">
+                        <p>PAYLAŞ</p>
+                    </div>
+
+                    <div id="footer__twitterIcon" class="footer__social-icon">
+
+                        <svg class="twitterIcon">
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#twitterIcon" />
+                        </svg>
+                    </div>
+                    <div id="footer__facebookIcon" class="footer__social-icon">
+                        <svg class="facebookIcon">
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#facebookIcon" />
+                        </svg>
+                    </div>
+                    <span class="footer__social-box-left-border footer__social-box-left-border-top "></span>
+                    <span class="footer__social-box-left-border footer__social-box-left-border-bottom "></span>
+
+                    <div id="footer__social-box__arrow">
+                        <svg class="footer__social-box__footerSocialArrow">
+                            <use x="0" y="0" xlink:href="assets/inc/maps.svg#footerSocialArrow" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div id="footer__filter-box">
+                    <div class="filter" data-eaten="not-eaten">
+                        <div class="active">
+                            <p>Yemediklerim</p>
+                        </div>
+                        <div class="passive">
+                            <p>Yemediklerim?</p>
+                        </div>
+                        <div class="roller"></div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+        <div id="loading" class="page">
+            <div id="loading__icon"></div>
+        </div>
+
+    </div>
+
+    <script src="assets/inc/jquery-3.3.1.min.js"></script>
+    <script src="assets/inc/svg4everybody.min.js"></script>
+    <script src="assets/inc/simple-scrollbar.js?28062018"></script>
+    <script src="assets/inc/mobile-detect.min.js"></script>
+    <script src="assets/inc/dragdealer.js"></script>
+    <!--<script src="assets/inc/elements.js?02072019"></script>-->
+    <!--<script src="assets/inc/hammer.min.js"></script>-->
+    <script src="assets/inc/jquery.mousewheel.min.js"></script>
+    <script src="assets/inc/functions.js?05072019.10"></script>
+
+</body>
+</html>
